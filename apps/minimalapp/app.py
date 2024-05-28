@@ -1,7 +1,10 @@
-from flask import Flask, render_template, url_for, request, current_app, redirect
+from flask import Flask, render_template, url_for, request, current_app, redirect, flash
+from email_validator import validate_email, EmailNotValidError
 
 app = Flask(__name__)
 
+#adding a secret key 
+app.config["SECRET_KEY"] = "djakl23fjdkEKRjSxE4"
 @app.route("/", methods = ["GET","POST"])
 def index():
     return "Hello, Flask!"
@@ -25,7 +28,37 @@ def contact():
 @app.route("/contact/complete", methods=["GET","POST"])
 def contact_complete():
     if request.method == "POST":
+        username = request.form["username"]
+        email = request.form["email"]
+        description = request.form["description"]
+
+        #input check
+        is_valid = True
+
+        if not username:
+            flash("Username is required")
+            is_valid=False
+
+        if not email:
+            flash("email is requried")
+            is_valid=False
         
+        try:
+            validate_email(email)
+        except EmailNotValidError:
+            flash("Please check the format of your email address")
+            is_valid=False
+
+        if not description:
+            flash("description must be put in")
+            is_valid=False
+
+        if not is_valid:
+            return redirect(url_for("contact"))
+        
+        flash("Thank you for the inqury")
+        
+
         # redirect to contact endpoint
         return redirect(url_for("contact_complete"))
     return render_template("contact_complete.html")
