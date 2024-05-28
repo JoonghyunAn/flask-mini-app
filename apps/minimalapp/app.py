@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, current_app, redirect
 
 app = Flask(__name__)
 
@@ -17,6 +17,19 @@ def hello(username):
 @app.route("/name/<name>")
 def show_name(name):
     return render_template("index.html", name=name)
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/contact/complete", methods=["GET","POST"])
+def contact_complete():
+    if request.method == "POST":
+        
+        # redirect to contact endpoint
+        return redirect(url_for("contact_complete"))
+    return render_template("contact_complete.html")
+
 
 with app.test_request_context():
     print(url_for("index"))
