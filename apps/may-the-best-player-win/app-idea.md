@@ -19,3 +19,5 @@ by Joong Hyun An
 #### Higest Hand of Cards
 
 #### Lottery
+
+#### coin toss
