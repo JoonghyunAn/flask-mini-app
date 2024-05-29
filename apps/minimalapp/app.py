@@ -1,10 +1,21 @@
 from flask import Flask, render_template, url_for, request, current_app, redirect, flash
 from email_validator import validate_email, EmailNotValidError
+import logging 
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 
 #adding a secret key 
 app.config["SECRET_KEY"] = "djakl23fjdkEKRjSxE4"
+
+# set the log level
+app.logger.setLevel(logging.DEBUG)
+app.debug = True
+
+# to not stop redirecting
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+toolbar = DebugToolbarExtension(app)
+
 @app.route("/", methods = ["GET","POST"])
 def index():
     return "Hello, Flask!"
