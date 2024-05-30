@@ -9,7 +9,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 
 #adding a secret key 
-app.config["SECRET_KEY"] = "djakl23fjdkEKRjSxE4"
+app.config["SECRET_KEY"] = "****"
 
 # set the log level
 app.logger.setLevel(logging.DEBUG)
