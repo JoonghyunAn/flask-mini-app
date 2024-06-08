@@ -18,7 +18,11 @@
             <!-- for repeat to print user info -->
             {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
+                <!-- add link with a tag, deprecate {{ user.id }} -->
+                <td>
+                    <a href="{{ url_for('crud.edit_user', user_id=user.id) }}">{{ user.id }}</a>
+                </td>
+                <!-- <td>{{ user.id }}</td> -->
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
             </tr>
