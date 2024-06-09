@@ -37,5 +37,12 @@
             {% endfor %}
             <p><input type="submit" value="renew" /></p>
         </form>
+
+        <form 
+        action="{{ url_for('crud.delete_user', user_id=user.id) }}" 
+        method="POST">
+        {{ form.csrf_token }}
+        <input type="submit" value="delete">
+        </form>
     </body>
 </html>
