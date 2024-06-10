@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset ="UTF-8" />
-        <title>User Summary</title>
-        <link rel="stylesheet" href="{{ url_for('crud.static', filename = 'style.css') }}" />
-    </head>
-
-    <body>
-        <h2>User Summary</h2>
-        <a href=""{{ url_for('crud.create_user') }}>New User</a>
-        <table>
-            <tr>
-                <th>User ID</th>
-                <th>User Name</th>
-                <th>Email Address</th>
-            </tr>
-            <!-- for repeat to print user info -->
-            {% for user in users %}
-            <tr>
-                <!-- add link with a tag, deprecate {{ user.id }} -->
-                <td>
-                    <a href="{{ url_for('crud.edit_user', user_id=user.id) }}">{{ user.id }}</a>
-                </td>
-                <!-- <td>{{ user.id }}</td> -->
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-
-    </body>
-</html>
+{% extends "crud/base.html" %}
+{% block title %}User Summary{% endblock %}
+{% block content %}
+<a href=""{{ url_for('crud.create_user') }}>New User</a>
+<table>
+    <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <th>Email Address</th>
+    </tr>
+    <!-- for repeat to print user info -->
+    {% for user in users %}
+    <tr>
+        <!-- add link with a tag, deprecate {{ user.id }} -->
+        <td>
+            <a href="{{ url_for('crud.edit_user', user_id=user.id) }}">{{ user.id }}</a>
+        </td>
+        <!-- <td>{{ user.id }}</td> -->
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
