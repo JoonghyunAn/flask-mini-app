@@ -22,5 +22,15 @@ class SignUpForm(FlaskForm):
         validators = [
             DataRequired("password is needed.")])
     submit = SubmitField("New Registration")
+class LoginForm(FlaskForm):
+    email = StringField(
+        "email address",
+        validators=[
+            DataRequired("email address is required"),
+            Email("input must be a valid email format"),
+        ]
+    )
+    password = PasswordField("password", validators=[DataRequired("password is required.")])
+    submit = SubmitField("Login by clicking here")
 
     

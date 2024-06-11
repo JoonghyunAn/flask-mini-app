@@ -4,7 +4,7 @@
 <h2>New User Registration</h2>
 
 <form
-    action = "{{ url_for('auth.singup', next=request.args.get('next')) }}"
+    action = "{{ url_for('auth.signup', next=request.args.get('next')) }}"
     methods="POST"
     novalidate="novalidate"
     >
@@ -26,7 +26,7 @@
     <p>{{ form.password.label }} {{ form.password(placeholder="password") }}</p>
     {% for error in form.password.errors %}
     <span style="color:red;">{{ error }}</span>
-    {% endfor % }
+    {% endfor %}
     <p>{{ form.submit() }}</p>
 </form>
 {% endblock %}
