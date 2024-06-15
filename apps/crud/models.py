@@ -3,7 +3,7 @@ from apps.app import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class User(db.Model, UserMixin):
+class User(UserMixin, db.Model):
     # table name
     __tablename__ = "users"
     # column
@@ -34,3 +34,5 @@ class User(db.Model, UserMixin):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(user_id)
+    
+    user_images = db.relationship("UserImage", backref="user")
