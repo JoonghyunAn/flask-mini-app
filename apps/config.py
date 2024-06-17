@@ -1,9 +1,11 @@
 from pathlib import Path
+
 basedir = Path(__file__).parent.parent
 
 class BaseConfig:
     SECRET_KEY = "2sdjflkadiick3kk"
     WTF_CSFR_SECRET_KEY = "askjDKJK#$352"
+    UPLOAD_FOLDER = str(Path(basedir, "apps", "images"))
 
 class LocalConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{basedir / 'local.sqlite'}"

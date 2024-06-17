@@ -1,8 +1,7 @@
 {% extends "detector/base.html" %}
 {% block content %}
 <div class="col-md-10 text-right dt-image-register-btn">
-    <a href="{{ url_for('detector.upload_image) }}" class="btn btn-primary">
-        add new image</a>
+    <a href="{{ url_for('detector.upload_image') }}" class="btn btn-primary">add new image</a>
 </div>
 {% for user_image in user_images %}
 <div class="card col-md-7 dt-image-content">
@@ -10,8 +9,12 @@
         <div class="dt-image-username">{{ user_image.User.username }}</div>
     </header>
     <section>
-        <img src="{{ url_for('detector.image_file', filename=user_image.UserImage.image_path) }}" 
-        alt="upload image" />
+        <img 
+            src="{{ url_for('detector.image_file', 
+                filename = user_image.UserImage.image_path) }}" 
+            alt="upload image"
+            />
+            
     </section>
 </div>
 {% endfor %}
