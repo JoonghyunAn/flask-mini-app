@@ -1,3 +1,6 @@
+
+/apps/detector/model.pt
+model.pt
 .env
 venv/
 # Byte-compiled / optimized / DLL files
