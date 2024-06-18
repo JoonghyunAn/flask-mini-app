@@ -1,5 +1,6 @@
-secretkey.py
-/secretkey.py
+secure.py
+/secure.py
+
 /apps/detector/model.pt
 model.pt
 .env

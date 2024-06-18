@@ -1,10 +1,10 @@
 from pathlib import Path
-
+from secure import key, wtf_key
 basedir = Path(__file__).parent.parent
 
 class BaseConfig:
-    SECRET_KEY = "2sdjflkadiick3kk"
-    WTF_CSFR_SECRET_KEY = "askjDKJK#$352"
+    SECRET_KEY = key
+    WTF_CSFR_SECRET_KEY = wtf_key
     UPLOAD_FOLDER = str(Path(basedir, "apps", "images"))
     LABELS = [
         "unlabeled",
