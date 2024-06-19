@@ -98,6 +98,7 @@ class BaseConfig:
         "teddy bear",
         "hair drier",
         "toothbrush",
+        "beaver"
     ]
 
 class LocalConfig(BaseConfig):
