@@ -1,4 +1,5 @@
 # flask-mini-app repository
 ### Various Flask Apps 
-- Image detector with pretrained model in development.
-- May The Best Player Win is the project that is on a planning phase. 
+- Image detector with pretrained model finished development. 
+- For the next step, it needs to be deployed.
+
