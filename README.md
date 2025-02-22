@@ -37,15 +37,6 @@ To run these applications locally, follow the steps below:
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
-3. **Install Dependencies**:
-
-   Navigate to the specific project directory and install any required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   *Note: Each project may have its own `requirements.txt` file.*
 
 ### Running the Application
 
