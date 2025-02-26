@@ -49,6 +49,9 @@ flask run
 This will start the development server, and you can view the application by navigating to `http://127.0.0.1:5000/` in your web browser.
 
 ### How it is run 
+
+When the app is activated, image can be put in and it returns a labeled image. It can tell approximately 100 objects apart. 
+Example of a run result. The image was recognized and labeled as cat. 
 ![image](https://github.com/user-attachments/assets/0077821f-c518-49d0-bd8c-6be62092b271)
 
 
